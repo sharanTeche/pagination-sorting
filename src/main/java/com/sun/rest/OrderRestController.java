@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.sun.constant.AppConstant.PAGE_NO;
+import static com.sun.constant.AppConstant.PAGE_SIZE;
+
 @RestController
 @RequestMapping("/api")
 public class OrderRestController {
@@ -23,8 +26,8 @@ public class OrderRestController {
     @GetMapping("/getAllOrder")
     public ResponseEntity<ApiResponce<ResponcePayload>> getAllOrder(
 
-            @RequestParam(value = "pageNo", defaultValue = "0", required = false) int pageNo,
-            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+            @RequestParam(value = "pageNo", defaultValue = PAGE_NO, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = PAGE_SIZE, required = false) int pageSize,
             @RequestParam(value = "sortBy", defaultValue = "orderId", required = false) String sortBy,
             @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir
     ) {
